@@ -1,0 +1,24 @@
+.toggleBtn {
+  position: relative;
+  height: 1.75rem;
+  width: 4rem;
+  border-radius: 100px;
+  transition: background-color 0.1 ease, border-color 0.2 ease;
+  cursor: pointer;
+}
+
+.toggleBtn .thumb {
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 100px;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.25rem;
+}
+
+.toggleBtn.dark .thumb, .toggleBtn.toggled .thumb {
+  left: calc(4rem - 1.5rem);
+}

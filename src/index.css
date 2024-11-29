@@ -1,0 +1,48 @@
+/* For Using font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	font-family: "Inter";
+}
+
+/* COLOR VARIABLES */
+html {
+	--color-raisin-black: 38 39 42;
+	--color-onyx: 62 65 73;
+	--color-charcoal: 68 79 90;
+	--color-salmon-pink: 255 153 153;
+	--color-tea-rose-red: 255 200 200;
+	--color-misty-rose: 255 221 221;
+	--color-white: 255 255 255;
+	--color-black: 0 0 0;
+	--color-timberwolf: 210 210 210;
+	--color-davys-gray: 95 95 95;
+}
+
+@layer base {
+	:root {
+		--color-primary: var(--color-salmon-pink);
+		--color-secondary: var(--color-tea-rose-red);
+		--color-text-primary: var(--color-black);
+		--color-text-secondary: var(--color-onyx);
+		--color-text-muted: var(--color-davys-gray);
+		--color-bkg-primary: var(--color-white);
+		--color-bkg-secondary: var(--color-misty-rose);
+		background-color: rgba(255, 255, 255, 1);
+	}
+
+	:root[class~="dark"] {
+		--color-primary: var(--color-salmon-pink);
+		--color-secondary: var(--color-tea-rose-red);
+		--color-text-primary: var(--color-white);
+		--color-text-secondary: var(--color-misty-rose);
+		--color-text-muted: var(--color-timberwolf);
+		--color-bkg-primary: var(--color-raisin-black);
+		--color-bkg-secondary: var(--color-onyx);
+		background-color: rgba(38, 39, 42, 1);
+	}
+}
