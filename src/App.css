@@ -3,7 +3,9 @@
   height: 1.75rem;
   width: 4rem;
   border-radius: 100px;
-  transition: background-color 0.1 ease, border-color 0.2 ease;
+  transition:
+    background-color 0.1 ease,
+    border-color 0.2 ease;
   cursor: pointer;
 }
 
@@ -19,6 +21,7 @@
   left: 0.25rem;
 }
 
-.toggleBtn.dark .thumb, .toggleBtn.toggled .thumb {
+.toggleBtn.dark .thumb,
+.toggleBtn.toggled .thumb {
   left: calc(4rem - 1.5rem);
 }

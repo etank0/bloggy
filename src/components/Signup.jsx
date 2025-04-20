@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import authService from '../services/auth';
-import { Link, useNavigate } from 'react-router-dom';
-import { login } from '../features/auth/authSlice';
-import { Button, Input, Logo, Spinner } from './index.js';
-import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import authService from "../services/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { login } from "../features/auth/authSlice";
+import { Button, Input, Logo, Spinner } from "./index.js";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 function Signup() {
   const navigate = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
 
   const create = async (data) => {
-    setError('');
+    setError("");
     try {
       setLoading(true);
       const userData = await authService.createAccount(data);
@@ -23,7 +23,7 @@ function Signup() {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(login(userData));
         toast.success("Successfully signed up and logged in!");
-        navigate('/');
+        navigate("/");
       }
     } catch (error) {
       setError(error.message);
@@ -60,7 +60,7 @@ function Signup() {
             <Input
               label="Full Name: "
               placeholder="Enter your full name"
-              {...register('name', {
+              {...register("name", {
                 required: true,
               })}
             />
@@ -68,12 +68,12 @@ function Signup() {
               label="Email: "
               placeholder="Enter your email"
               type="email"
-              {...register('email', {
+              {...register("email", {
                 required: true,
                 validate: {
                   matchPatern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                    'Email address must be a valid address',
+                    "Email address must be a valid address",
                 },
               })}
             />
@@ -81,7 +81,7 @@ function Signup() {
               label="Password: "
               type="password"
               placeholder="Enter your password"
-              {...register('password', {
+              {...register("password", {
                 required: true,
               })}
             />

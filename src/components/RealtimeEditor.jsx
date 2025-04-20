@@ -14,7 +14,7 @@ export default function RealtimeEditor({
   const charLimit = 8000;
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => { }, [theme]);
+  useEffect(() => {}, [theme]);
 
   return (
     <div className="flex flex-col w-full flex-1">
@@ -74,9 +74,15 @@ export default function RealtimeEditor({
                   const contentHtml = editor.getContent();
                   const contentLength = contentHtml.length;
 
-                  if (contentLength >= charLimit && e.key !== "Backspace" && e.key !== "Delete") {
+                  if (
+                    contentLength >= charLimit &&
+                    e.key !== "Backspace" &&
+                    e.key !== "Delete"
+                  ) {
                     e.preventDefault();
-                    setErrorMessage(`Content exceeds the ${charLimit} character limit.`);
+                    setErrorMessage(
+                      `Content exceeds the ${charLimit} character limit.`
+                    );
                   } else {
                     setErrorMessage("");
                   }
@@ -89,12 +95,8 @@ export default function RealtimeEditor({
       />
 
       {errorMessage && (
-        <div className="text-red-400 text-sm mt-1">
-          {errorMessage}
-        </div>
+        <div className="text-red-400 text-sm mt-1">{errorMessage}</div>
       )}
-
     </div>
   );
 }
-

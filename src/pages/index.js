@@ -7,13 +7,4 @@ import Post from "./Post";
 import Home from "./Home";
 import About from "./About";
 
-export {
-    Signup,
-    Login,
-    MyPosts,
-    AddPost,
-    EditPost,
-    Post,
-    Home,
-    About
-}
+export { Signup, Login, MyPosts, AddPost, EditPost, Post, Home, About };

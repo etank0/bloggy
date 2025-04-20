@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
-import authService from './services/auth';
-import { login, logout } from './features/auth/authSlice';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import authService from "./services/auth";
+import { login, logout } from "./features/auth/authSlice";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import {
   Footer,
   Header,
@@ -12,10 +12,19 @@ import {
   CurveContainer,
   CustomToaster,
   Loader,
-} from './components';
-import { ThemeProvider } from './context/ThemeContext';
-import { Signup, Login, MyPosts, AddPost, EditPost, Post, Home, About } from './pages';
-import { useDrawer } from './context/DrawerContext';
+} from "./components";
+import { ThemeProvider } from "./context/ThemeContext";
+import {
+  Signup,
+  Login,
+  MyPosts,
+  AddPost,
+  EditPost,
+  Post,
+  Home,
+  About,
+} from "./pages";
+import { useDrawer } from "./context/DrawerContext";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -57,10 +66,11 @@ function App() {
               <Router>
                 <Header />
                 <div
-                  className={`z-10 ${isDrawerOpen
-                      ? 'overflow-hidden max-h-[calc(100vh-5.5rem)]'
-                      : 'overflow-auto'
-                    } text-text-primary min-h-[calc(100vh-5.5rem)] flex flex-col`}
+                  className={`z-10 ${
+                    isDrawerOpen
+                      ? "overflow-hidden max-h-[calc(100vh-5.5rem)]"
+                      : "overflow-auto"
+                  } text-text-primary min-h-[calc(100vh-5.5rem)] flex flex-col`}
                 >
                   <div className={`w-full flex flex-col flex-1`}>
                     <Routes>
@@ -142,7 +152,7 @@ function App() {
                               <title>Add Post - Bloggy</title>
                             </Helmet>
                             <AuthLayout authentication>
-                              {' '}
+                              {" "}
                               <AddPost />
                             </AuthLayout>
                           </>
@@ -153,7 +163,7 @@ function App() {
                         element={
                           <>
                             <AuthLayout authentication>
-                              {' '}
+                              {" "}
                               <EditPost />
                             </AuthLayout>
                           </>

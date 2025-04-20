@@ -7,11 +7,11 @@ import { DrawerProvider } from "./context/DrawerContext.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<DrawerProvider>
-				<App />
-			</DrawerProvider>
-		</Provider>
-	</React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <DrawerProvider>
+        <App />
+      </DrawerProvider>
+    </Provider>
+  </React.StrictMode>
 );

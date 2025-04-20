@@ -45,7 +45,7 @@ const Dropzone = ({ className, setValue, name }) => {
     },
   });
 
-return (
+  return (
     <div>
       <div {...getRootProps({ className })}>
         <input {...getInputProps()} />

@@ -12,9 +12,7 @@ function Footer() {
   };
 
   return (
-    <section
-      className="bottom-0 relative overflow-hidden py-10 bg-bkg-secondary border-b border-b-secondary"
-    >
+    <section className="bottom-0 relative overflow-hidden py-10 bg-bkg-secondary border-b border-b-secondary">
       <div className="relative z-10 mx-auto max-w-7xl px-4">
         <div className="-m-6 flex flex-wrap">
           <div className="w-full p-6 md:w-1/2 lg:w-5/12">
@@ -24,8 +22,8 @@ function Footer() {
               </div>
               <div>
                 <p className="text-sm text-text-muted">
-                  &copy; Copyright {getCurrentYear()}. All
-                  Rights Reserved by etank0.
+                  &copy; Copyright {getCurrentYear()}. All Rights Reserved by
+                  etank0.
                 </p>
               </div>
             </div>

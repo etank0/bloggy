@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import storageService from '../services/storage';
-import { Spinner, Button, Container, LikesContainer } from '../components';
-import parse from 'html-react-parser';
-import { useSelector } from 'react-redux';
-import { Helmet } from 'react-helmet-async';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
-import toast from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import storageService from "../services/storage";
+import { Spinner, Button, Container, LikesContainer } from "../components";
+import parse from "html-react-parser";
+import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet-async";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import toast from "react-hot-toast";
 
 export default function Post() {
   const [loading, setLoading] = useState(false);
@@ -27,14 +27,14 @@ export default function Post() {
         if (post) {
           setPost(post);
         } else {
-          toast.error('Post not found!');
-          navigate('/', { replace: true });
+          toast.error("Post not found!");
+          navigate("/", { replace: true });
         }
         setPostLiked((post?.liked && true) || false);
       });
     } else {
-      toast.error('Post not found!');
-      navigate('/', { replace: true });
+      toast.error("Post not found!");
+      navigate("/", { replace: true });
     }
     setLoading(false);
   }, [slug, navigate]);
@@ -44,7 +44,7 @@ export default function Post() {
     storageService.deletePost(post.$id).then((status) => {
       if (status) {
         storageService.deleteFile(post.featuredImage);
-        navigate('/');
+        navigate("/");
       }
     });
     setLoading(false);
@@ -53,7 +53,7 @@ export default function Post() {
   return (
     <div className="flex flex-1 w-full">
       <Helmet>
-        <title>{post?.title || 'Post'} - Bloggy</title>
+        <title>{post?.title || "Post"} - Bloggy</title>
       </Helmet>
       {post && !loading ? (
         <Container>
@@ -104,7 +104,9 @@ export default function Post() {
                   />
                 </div>
                 <div className="h-[1px] mb-2 mt-2 bg-bkg-secondary" />
-                <div className="browser-css break-words">{parse(post.content)}</div>
+                <div className="browser-css break-words">
+                  {parse(post.content)}
+                </div>
               </div>
             </div>
           </div>

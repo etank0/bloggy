@@ -1,5 +1,5 @@
-import React from 'react';
-import { Login as LoginComponent, Container } from '../components';
+import React from "react";
+import { Login as LoginComponent, Container } from "../components";
 function Login() {
   return (
     <Container className="py-8">

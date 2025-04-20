@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
-import storageService from '../services/storage';
-import toast from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
+import storageService from "../services/storage";
+import toast from "react-hot-toast";
 
 function LikesContainer({ likesCount, postID, liked, setPostLiked }) {
   const authStatus = useSelector((state) => state.auth.status);
@@ -19,7 +19,7 @@ function LikesContainer({ likesCount, postID, liked, setPostLiked }) {
     }
 
     try {
-      setIsLiked(prev => !prev);
+      setIsLiked((prev) => !prev);
       setLikes(isLiked ? likes - 1 : likes + 1);
       setPostLiked(!isLiked);
 
@@ -29,15 +29,15 @@ function LikesContainer({ likesCount, postID, liked, setPostLiked }) {
         await storageService.removeLike({ postID, userID: userData.$id });
       }
     } catch (error) {
-      console.error('Error liking post: ', error);
+      console.error("Error liking post: ", error);
       setPostLiked(isLiked);
-      setIsLiked(prev => !prev);
+      setIsLiked((prev) => !prev);
       setLikes(isLiked ? likes + 1 : likes - 1);
     }
   };
 
   const notify = () => {
-    toast.error('Login is required to like a post!');
+    toast.error("Login is required to like a post!");
   };
 
   return (
@@ -45,7 +45,7 @@ function LikesContainer({ likesCount, postID, liked, setPostLiked }) {
       <button
         type="button"
         className={`text-2xl font-semibold ${
-          isLiked ? 'text-[#ff3c3c]' : 'text-text-primary'
+          isLiked ? "text-[#ff3c3c]" : "text-text-primary"
         } bg-none`}
         onClick={handleLike}
       >

@@ -1,9 +1,9 @@
-import React from 'react';
-import 'ldrs/dotStream';
-import { Logo } from '../components';
-import { useTheme } from '../context/ThemeContext';
+import React from "react";
+import "ldrs/dotStream";
+import { Logo } from "../components";
+import { useTheme } from "../context/ThemeContext";
 
-function Loader({ className = '' }) {
+function Loader({ className = "" }) {
   const { theme } = useTheme();
 
   return (
@@ -13,7 +13,7 @@ function Loader({ className = '' }) {
         <l-dot-stream
           size="100"
           speed="2"
-          color={`${theme === 'dark' ? 'white' : '#26272a'}`}
+          color={`${theme === "dark" ? "white" : "#26272a"}`}
         ></l-dot-stream>
       </div>
     </div>

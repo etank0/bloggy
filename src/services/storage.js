@@ -1,5 +1,5 @@
-import appwriteConfig from '../configs/appwrite';
-import { Client, Databases, ID, Storage, Query } from 'appwrite';
+import appwriteConfig from "../configs/appwrite";
+import { Client, Databases, ID, Storage, Query } from "appwrite";
 
 export class StorageService {
   client = new Client();
@@ -41,7 +41,7 @@ export class StorageService {
         }
       );
     } catch (error) {
-      console.error('Appwrite Storage Service :: createPost :: error', error);
+      console.error("Appwrite Storage Service :: createPost :: error", error);
       throw error;
     }
   }
@@ -61,7 +61,7 @@ export class StorageService {
         }
       );
     } catch (error) {
-      console.error('Appwrite Storage Service :: updatePost :: error', error);
+      console.error("Appwrite Storage Service :: updatePost :: error", error);
     }
   }
 
@@ -80,12 +80,12 @@ export class StorageService {
         return post;
       }
     } catch (error) {
-      console.error('Appwrite Storage Service :: getPost :: error', error);
+      console.error("Appwrite Storage Service :: getPost :: error", error);
       return false;
     }
   }
 
-  async getPosts(userID, queries = [Query.equal('status', 'active')]) {
+  async getPosts(userID, queries = [Query.equal("status", "active")]) {
     try {
       const posts = await this.databases.listDocuments(
         appwriteConfig.appwriteDatabaseID,
@@ -105,7 +105,7 @@ export class StorageService {
         return posts.documents;
       }
     } catch (error) {
-      console.error('Appwrite Storage Service :: getPosts :: error', error);
+      console.error("Appwrite Storage Service :: getPosts :: error", error);
     }
   }
 
@@ -118,14 +118,14 @@ export class StorageService {
       );
       return true;
     } catch (error) {
-      console.error('Appwrite Storage Service :: deletePost :: error', error);
+      console.error("Appwrite Storage Service :: deletePost :: error", error);
       return false;
     }
   }
 
   async updateLikes(postID, increase) {
     try {
-      const queries = [Query.equal('postID', postID)];
+      const queries = [Query.equal("postID", postID)];
 
       const likesDocs = await this.databases.listDocuments(
         appwriteConfig.appwriteDatabaseID,
@@ -147,7 +147,7 @@ export class StorageService {
       );
       return true;
     } catch (error) {
-      console.error('Appwrite Storage Service :: updateLikes :: error', error);
+      console.error("Appwrite Storage Service :: updateLikes :: error", error);
       return false;
     }
   }
@@ -155,8 +155,8 @@ export class StorageService {
   async getLike({ postID, userID }) {
     try {
       const queries = [
-        Query.equal('postID', postID),
-        Query.equal('userID', userID),
+        Query.equal("postID", postID),
+        Query.equal("userID", userID),
       ];
 
       const likesDocs = await this.databases.listDocuments(
@@ -173,7 +173,7 @@ export class StorageService {
         return null;
       }
     } catch (error) {
-      console.error('Appwrite Storage Service :: getLike :: error', error);
+      console.error("Appwrite Storage Service :: getLike :: error", error);
       return false;
     }
   }
@@ -198,7 +198,7 @@ export class StorageService {
       await this.updateLikes(postID, 0);
       return true;
     } catch (error) {
-      console.error('Appwrite Storage Service :: addLike :: error', error);
+      console.error("Appwrite Storage Service :: addLike :: error", error);
       return false;
     }
   }
@@ -224,7 +224,7 @@ export class StorageService {
       await this.updateLikes(postID, 0);
       return true;
     } catch (error) {
-      console.error('Appwrite Storage Service :: removeLike :: error', error);
+      console.error("Appwrite Storage Service :: removeLike :: error", error);
       return false;
     }
   }
@@ -237,7 +237,7 @@ export class StorageService {
         file
       );
     } catch (error) {
-      console.error('Appwrite Storage Service :: uploadFile :: error', error);
+      console.error("Appwrite Storage Service :: uploadFile :: error", error);
     }
   }
 
@@ -247,7 +247,7 @@ export class StorageService {
 
       return true;
     } catch (error) {
-      console.error('Appwrite Storage Service :: deleteFile :: error', error);
+      console.error("Appwrite Storage Service :: deleteFile :: error", error);
 
       return false;
     }
@@ -261,7 +261,7 @@ export class StorageService {
       );
     } catch (error) {
       console.error(
-        'Appwrite Storage Service :: getFilePreview :: error',
+        "Appwrite Storage Service :: getFilePreview :: error",
         error
       );
     }

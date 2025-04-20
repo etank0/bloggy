@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import storageService from '../../services/storage';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
-import { LikesContainer } from '../../components';
+import React, { useEffect, useState } from "react";
+import storageService from "../../services/storage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { LikesContainer } from "../../components";
 
 function PostCard({
   $id,
@@ -15,7 +15,7 @@ function PostCard({
   liked,
   status,
   showStatus,
-  isToggled
+  isToggled,
 }) {
   const navigate = useNavigate();
   const [postLiked, setPostLiked] = useState((liked && true) || false);
@@ -23,11 +23,10 @@ function PostCard({
     navigate(`/post/${$id}`);
   };
 
-  useEffect(() => {
-  }, [postLiked, isToggled]);
+  useEffect(() => {}, [postLiked, isToggled]);
 
   if (isToggled && !postLiked) {
-    return <></>
+    return <></>;
   }
 
   return (
@@ -37,7 +36,7 @@ function PostCard({
           <div className="w-full mb-2 flex justify-start items-center">
             <span
               className={`text-gray-900 px-3 py-1 rounded-2xl text-sm font-medium ${
-                status === 'active' ? 'bg-green-300' : 'bg-red-300'
+                status === "active" ? "bg-green-300" : "bg-red-300"
               }`}
             >
               {status}
@@ -63,7 +62,12 @@ function PostCard({
         </div>
       </div>
       <div className="flex text-xl font-semibold mt-2">
-        <LikesContainer likesCount={likes} postID={$id} liked={postLiked} setPostLiked={setPostLiked}/>
+        <LikesContainer
+          likesCount={likes}
+          postID={$id}
+          liked={postLiked}
+          setPostLiked={setPostLiked}
+        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import storageService from '../services/storage';
-import { Container, PostCard, Spinner, ShowLikedToggle } from '../components';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import storageService from "../services/storage";
+import { Container, PostCard, Spinner, ShowLikedToggle } from "../components";
+import { useSelector } from "react-redux";
 
 function Home() {
   const [loading, setLoading] = useState(true);

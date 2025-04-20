@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { login as authLogin } from '../features/auth/authSlice';
-import { Button, Input, Logo, Spinner } from './index';
-import { useDispatch } from 'react-redux';
-import authService from '../services/auth';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { login as authLogin } from "../features/auth/authSlice";
+import { Button, Input, Logo, Spinner } from "./index";
+import { useDispatch } from "react-redux";
+import authService from "../services/auth";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const login = async (data) => {
-    setError('');
+    setError("");
     setLoading(true);
     try {
       const session = await authService.login(data);
@@ -23,7 +23,7 @@ function Login() {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
         toast.success("Successfully logged in!");
-        navigate('/');
+        navigate("/");
       }
     } catch (error) {
       setError(error.message);
@@ -60,12 +60,12 @@ function Login() {
               label="Email: "
               placeholder="Enter your email"
               type="email"
-              {...register('email', {
+              {...register("email", {
                 required: true,
                 validate: {
                   matchPatern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                    'Email address must be a valid address',
+                    "Email address must be a valid address",
                 },
               })}
             />
@@ -73,7 +73,7 @@ function Login() {
               label="Password: "
               type="password"
               placeholder="Enter your password"
-              {...register('password', {
+              {...register("password", {
                 required: true,
               })}
             />
@@ -84,7 +84,7 @@ function Login() {
         </form>
       </div>
       {loading && (
-        <div className='w-full py-3'>
+        <div className="w-full py-3">
           <Spinner />
         </div>
       )}
